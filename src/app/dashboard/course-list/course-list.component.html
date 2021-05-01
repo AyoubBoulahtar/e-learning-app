@@ -1,0 +1,24 @@
+<div class="text-center">
+  <div class="spinner-border" style="width: 3rem; height: 3rem; color: #311B92;" role="status" *ngIf="isLoading">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="container mt-5" *ngIf="!isLoading">
+  <div class="row g-5">
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let course of courses">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{ course.instructor }}</p>
+          <h3 class="card-title">{{ course.title }}</h3>
+        </div>
+        <img src="./assets/card-bg.png" class="card-img-top" alt="Card background">
+        <div class="card-footer">
+          <button class="btn btn-secondary fw-bold me-3">Details</button>
+          <button class="btn btn-secondary fw-bold me-3">Enroll</button>
+          <a class="btn btn-secondary fw-bold me-3" [routerLink]="['/dashboard/edit-course', course._id]">Edit</a>
+          <button (click)="onDelete(course._id)" class="btn btn-secondary fw-bold me-3">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

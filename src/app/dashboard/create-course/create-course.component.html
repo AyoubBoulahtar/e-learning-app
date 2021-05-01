@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+      <div class="spinner-border" style="width: 3rem; height: 3rem; color: #311B92;" role="status" *ngIf="isLoading">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <form (submit)="onSaveCourse(form)" #form="ngForm" *ngIf="!isLoading">
+      <div class="form-group py-3">
+        <label for="title" class="form-label">Course title</label>
+        <input name="title" type="text" [ngModel]="course?.title" class="form-control form-control-lg" #title="ngModel" required>
+        <div class="invalid-feedback" *ngIf="title.invalid">Please enter the course title</div>
+      </div>
+      <div class="form-group py-3">
+        <label for="instructor" class="form-label">Instructor</label>
+        <input name="instructor" type="text" [ngModel]="course?.instructor" class="form-control form-control-lg" #instructor="ngModel" required>
+        <div class="invalid-feedback" *ngIf="instructor.invalid">Please enter instructor's name</div>
+      </div>
+      <div class="form-group py-3">
+        <label for="description" class="form-label">About course</label>
+        <textarea name="description" type="description" [ngModel]="course?.description" class="form-control" rows="3" #description="ngModel" required></textarea>
+        <div class="invalid-feedback" *ngIf="description.invalid">Please enter the course description</div>
+      </div>
+      <div class="form-group py-3">
+        <label for="details" class="form-label">Course details</label>
+        <textarea name="details" type="details" [ngModel]="course?.details" class="form-control" rows="10" #details="ngModel"></textarea>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-secondary fw-bold my-3" type="submit">Save course</button>
+      </div>
+    </form>
+  </div>
+</div>

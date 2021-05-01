@@ -1,0 +1,22 @@
+<div class="container-fluid hero vh-95">
+  <div class="row justify-content-sm-center align-items-center h-100" id="login-container">
+    <div id="form-container" class="col-sm-3 bg-light h-80 w-30 px-5 py-5">
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+        <h2 class="display-5 py-3 text-center">Log In</h2>
+        <div class="form-group py-3">
+          <label for="email" class="form-label">Email address</label>
+          <input name="email" type="email" ngModel class="form-control form-control-lg" #email="ngModel" required email>
+          <div class="invalid-feedback" *ngIf="email.invalid">Please enter a valid e-mail</div>
+        </div>
+        <div class="form-group py-3">
+          <label for="password" class="form-label">Password</label>
+          <input name="password" type="password" ngModel class="form-control form-control-lg" #password="ngModel" required>
+          <div class="invalid-feedback" *ngIf="password.invalid">Please enter a valid password</div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-secondary fw-bold my-3" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

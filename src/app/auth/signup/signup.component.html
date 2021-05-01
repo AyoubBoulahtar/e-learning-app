@@ -1,0 +1,35 @@
+<div class="container-fluid hero vh-95">
+  <div class="row align-items-center h-100" id="signup-container">
+    <div class="col-8 mx-auto order-lg-1 col-lg-5">
+      <img class="img-fluid mb-3 mb-md-0" src="./assets/authentication.svg" alt="sign up authentication illustration">
+    </div>
+    <div id="form-container" class="order-lg-2 col-lg-6 bg-light h-90 w-50 px-5 py-5 me-5">
+      <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+        <h2 class="display-5 py-3 text-center">Sign Up</h2>
+        <div class="form-group py-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input name="firstName" type="text" ngModel class="form-control form-control-lg" #firstNameInput="ngModel" required>
+          <div class="invalid-feedback" *ngIf="firstNameInput.invalid">Please enter you first name</div>
+        </div>
+        <div class="form-group py-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input name="lastName" type="text" ngModel class="form-control form-control-lg" #lastNameInput="ngModel" required>
+          <div class="invalid-feedback" *ngIf="lastNameInput.invalid">Please enter your last name</div>
+        </div>
+        <div class="form-group py-3">
+          <label for="email" class="form-label">Email address</label>
+          <input name="email" type="email" ngModel class="form-control form-control-lg" #emailInput="ngModel" required email>
+          <div class="invalid-feedback" *ngIf="emailInput.invalid">Please enter a valid e-mail</div>
+        </div>
+        <div class="form-group py-3">
+          <label for="password" class="form-label">Password</label>
+          <input name="password" type="password" ngModel class="form-control form-control-lg" #passwordInput="ngModel" required>
+          <div class="invalid-feedback" *ngIf="passwordInput.invalid">Please enter a valid password</div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-secondary fw-bold my-3" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
